@@ -47,3 +47,45 @@ store_items = pd.concat([store_items, new_store])
 
 # We display the modified DataFrame
 print(store_items)
+
+# We add a new column using data from particular rows in the watches column
+store_items['new watches'] = store_items['watches'][1:]
+
+# We display the modified DataFrame
+print(store_items)
+
+# We insert a new column with label shoes right before the column with numerical index 4
+store_items.insert(4, 'shoes', [8,5,0])
+
+# we display the modified DataFrame
+print(store_items)
+
+# We remove the new watches column
+store_items.pop('new watches')
+
+# we display the modified DataFrame
+print(store_items)
+
+# We remove the store 2 and store 1 rows
+store_items = store_items.drop(['store 2', 'store 1'], axis = 0)
+
+# we display the modified DataFrame
+print(store_items)
+
+# We change the column label bikes to hats
+store_items = store_items.rename(columns = {'bikes': 'hats'})
+
+# we display the modified DataFrame
+print(store_items)
+
+# We change the row label from store 3 to last store
+store_items = store_items.rename(index = {'store 3': 'last store'})
+
+# we display the modified DataFrame
+print(store_items)
+
+# We change the row index to be the data in the pants column
+store_items = store_items.set_index('shoes')
+
+# we display the modified DataFrame
+print(store_items)
